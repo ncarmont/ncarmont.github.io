@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kiki AI and Python and AI Tutorials | Terms &amp; Conditions</title>
+  <title>Kiki AI - Python and AI Teaching | Terms &amp; Conditions</title>
   <style>
     :root {
       --primary-blue: #007BFF;
@@ -46,12 +46,14 @@
       border: 2px solid var(--primary-blue);
       border-radius: 50% 50% 45% 45%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      animation: float 3s ease-in-out infinite;
+      animation: enhancedFloat 3s ease-in-out infinite;
     }
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
+    @keyframes enhancedFloat {
+      0% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-10px) rotate(5deg); }
+      50% { transform: translateY(0) rotate(0deg); }
+      75% { transform: translateY(10px) rotate(-5deg); }
+      100% { transform: translateY(0) rotate(0deg); }
     }
     header h1 {
       margin-top: 90px;
@@ -111,17 +113,24 @@
       margin: 1rem 0;
       padding-left: 1rem;
     }
-    .cta-button {
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .cta-button, .email-button {
+      flex: 1;
+      text-align: center;
       display: inline-block;
       background-color: var(--primary-blue);
       color: var(--white);
       padding: 0.75rem 1.5rem;
-      margin-top: 1.5rem;
       text-decoration: none;
       border-radius: 5px;
       transition: background-color 0.3s ease;
     }
-    .cta-button:hover {
+    .cta-button:hover, .email-button:hover {
       background-color: var(--dark-blue);
     }
     footer {
@@ -137,8 +146,8 @@
     <div class="egg-container">
       <div class="egg"></div>
     </div>
-    <h1>Kiki AI and Python and AI Tutorials</h1>
-    <p>Your hub for Python programming and advanced AI tutorials</p>
+    <h1>Kiki AI - Python and AI Teaching</h1>
+    <p>Your hub for Python programming and advanced AI lessons</p>
   </header>
   <nav>
     <a href="https://m.youtube.com/@kiki-tech-ai" target="_blank">YouTube Channel</a>
@@ -146,20 +155,20 @@
   <main class="container">
     <section class="terms">
       <h2>Terms &amp; Conditions</h2>
-      <p>Welcome to Kiki AI and Python and AI Tutorials. By accessing and using our website, you agree to comply with and be bound by the following Terms &amp; Conditions. Please review them carefully.</p>
+      <p>Welcome to Kiki AI - Python and AI Teaching. By accessing and using our website, you agree to comply with and be bound by the following Terms &amp; Conditions. Please review them carefully.</p>
       
       <h3>1. Business Information</h3>
-      <p><strong>Business Name:</strong> Kiki AI and Python and AI Tutorials</p>
+      <p><strong>Business Name:</strong> Kiki AI - Python and AI Teaching</p>
       <p><strong>Description of Goods/Services:</strong> We offer digital tutorials, guides, and video content focused on Python programming and Artificial Intelligence (AI) techniques, including automation and advanced projects. This description matches the information provided to our financial partners.</p>
       
       <h3>2. Customer Service Contact Details</h3>
-      <p>If you have any questions or require support, please contact us at: <a href="mailto:support@kiki.ai">support@kiki.ai</a>. For more in-depth Python lessons, get in touch at: <a href="mailto:buildskiki@gmail.com">buildskiki@gmail.com</a>.</p>
+      <p>For inquiries and support, please contact us at: <a href="mailto:buildskiki@gmail.com">buildskiki@gmail.com</a></p>
       
       <h3>3. Refund and Dispute Policy</h3>
-      <p>Our digital services are provided as described. Refunds and dispute resolutions are handled on a case-by-case basis. Please contact our support team for any concerns.</p>
+      <p>Our digital services are provided as described. Refunds and dispute resolutions are handled on a case-by-case basis. Please contact us at the email address above for any concerns.</p>
       
       <h3>4. Cancellation Policy</h3>
-      <p>Cancellations (where applicable) are processed individually. For cancellation details, please reach out to our customer support.</p>
+      <p>Cancellations (where applicable) are processed individually. For cancellation details, please reach out to us at <a href="mailto:buildskiki@gmail.com">buildskiki@gmail.com</a>.</p>
       
       <h3>5. Legal or Export Restrictions</h3>
       <p>Our content is available globally. Users are responsible for ensuring compliance with local laws and regulations regarding digital content.</p>
@@ -169,11 +178,14 @@
       
       <p>By using this website, you confirm that you have read, understood, and agree to these Terms &amp; Conditions. If you do not agree with any part of these terms, please refrain from using our website.</p>
       
-      <a class="cta-button" href="https://m.youtube.com/@kiki-tech-ai" target="_blank">Visit our YouTube Channel</a>
+      <div class="button-group">
+        <a class="cta-button" href="https://m.youtube.com/@kiki-tech-ai" target="_blank">Visit our YouTube Channel</a>
+        <a class="email-button" href="mailto:buildskiki@gmail.com?subject=In-Depth%20Python/AI%20Lessons" target="_blank">Email for More In-Depth Lessons</a>
+      </div>
     </section>
   </main>
   <footer>
-    <p>&copy; 2025 Kiki AI and Python and AI Tutorials. All rights reserved.</p>
+    <p>&copy; 2025 Kiki AI - Python and AI Teaching. All rights reserved.</p>
   </footer>
 </body>
 </html>

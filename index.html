@@ -25,13 +25,36 @@
       overflow-x: hidden;
     }
     header {
+      position: relative;
       background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
       color: var(--white);
-      padding: 2rem 1rem;
+      padding: 3rem 1rem 2rem;
       text-align: center;
+      overflow: hidden;
+    }
+    /* Egg container placed at the top center */
+    .egg-container {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .egg {
+      width: 60px;
+      height: 80px;
+      background: linear-gradient(135deg, #fff, var(--light-blue));
+      border: 2px solid var(--primary-blue);
+      border-radius: 50% 50% 45% 45%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
     header h1 {
-      margin: 0;
+      margin-top: 90px;
       font-size: 2.5rem;
     }
     header p {
@@ -111,6 +134,9 @@
 </head>
 <body>
   <header>
+    <div class="egg-container">
+      <div class="egg"></div>
+    </div>
     <h1>Kiki AI and Python and AI Tutorials</h1>
     <p>Your hub for Python programming and advanced AI tutorials</p>
   </header>
@@ -127,7 +153,7 @@
       <p><strong>Description of Goods/Services:</strong> We offer digital tutorials, guides, and video content focused on Python programming and Artificial Intelligence (AI) techniques, including automation and advanced projects. This description matches the information provided to our financial partners.</p>
       
       <h3>2. Customer Service Contact Details</h3>
-      <p>If you have any questions or require support, please contact us at: <a href="mailto:support@kiki.ai">support@kiki.ai</a></p>
+      <p>If you have any questions or require support, please contact us at: <a href="mailto:support@kiki.ai">support@kiki.ai</a>. For more in-depth Python lessons, get in touch at: <a href="mailto:buildskiki@gmail.com">buildskiki@gmail.com</a>.</p>
       
       <h3>3. Refund and Dispute Policy</h3>
       <p>Our digital services are provided as described. Refunds and dispute resolutions are handled on a case-by-case basis. Please contact our support team for any concerns.</p>

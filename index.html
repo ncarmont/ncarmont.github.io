@@ -7,9 +7,10 @@
   <style>
     :root {
       --primary-blue: #007BFF;
+      --secondary-blue: #00A1FF;
       --dark-blue: #0056b3;
       --light-blue: #e0f7ff;
-      --background: #f5faff;
+      --background-gradient: linear-gradient(135deg, #f5faff, #e0f7ff);
       --text-color: #333;
       --white: #ffffff;
     }
@@ -19,20 +20,20 @@
     body {
       margin: 0;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: var(--background);
+      background: var(--background-gradient);
       color: var(--text-color);
       line-height: 1.6;
       overflow-x: hidden;
     }
     header {
       position: relative;
-      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
       color: var(--white);
       padding: 3rem 1rem 2rem;
       text-align: center;
       overflow: hidden;
     }
-    /* Egg container placed at the top center */
+    /* Enhanced Animated Egg */
     .egg-container {
       position: absolute;
       top: 10px;
@@ -46,14 +47,14 @@
       border: 2px solid var(--primary-blue);
       border-radius: 50% 50% 45% 45%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      animation: enhancedFloat 3s ease-in-out infinite;
+      animation: enhancedEgg 3s ease-in-out infinite;
     }
-    @keyframes enhancedFloat {
-      0% { transform: translateY(0) rotate(0deg); }
-      25% { transform: translateY(-10px) rotate(5deg); }
-      50% { transform: translateY(0) rotate(0deg); }
-      75% { transform: translateY(10px) rotate(-5deg); }
-      100% { transform: translateY(0) rotate(0deg); }
+    @keyframes enhancedEgg {
+      0%   { transform: translateY(0) rotate(0deg) scale(1); }
+      25%  { transform: translateY(-10px) rotate(5deg) scale(1.05); }
+      50%  { transform: translateY(0) rotate(0deg) scale(1); }
+      75%  { transform: translateY(10px) rotate(-5deg) scale(0.95); }
+      100% { transform: translateY(0) rotate(0deg) scale(1); }
     }
     header h1 {
       margin-top: 90px;
@@ -74,6 +75,7 @@
       color: var(--primary-blue);
       text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
     }
     .container {
       max-width: 960px;
@@ -91,11 +93,13 @@
         transform: translateY(0);
       }
     }
+    /* Terms Section */
     .terms {
       background-color: var(--white);
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
     }
     .terms h2 {
       margin-top: 0;
@@ -113,6 +117,7 @@
       margin: 1rem 0;
       padding-left: 1rem;
     }
+    /* Button Group with Gradient Buttons */
     .button-group {
       display: flex;
       flex-wrap: wrap;
@@ -123,21 +128,89 @@
       flex: 1;
       text-align: center;
       display: inline-block;
-      background-color: var(--primary-blue);
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
       color: var(--white);
       padding: 0.75rem 1.5rem;
       text-decoration: none;
       border-radius: 5px;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s ease;
     }
     .cta-button:hover, .email-button:hover {
-      background-color: var(--dark-blue);
+      background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
     }
     footer {
-      background-color: var(--light-blue);
+      background: var(--background-gradient);
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
+    }
+    /* Python Tutorial Card */
+    .card {
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .card h2 {
+      color: var(--primary-blue);
+    }
+    .card button {
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      color: var(--white);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .card button:hover {
+      background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+    }
+    .card .content {
+      display: none;
+      margin-top: 1rem;
+      animation: fadeInUp 0.5s ease-out;
+    }
+    pre {
+      background-color: #eee;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background-color: var(--white);
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      position: relative;
+    }
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -151,8 +224,10 @@
   </header>
   <nav>
     <a href="https://m.youtube.com/@kiki-tech-ai" target="_blank">YouTube Channel</a>
+    <a id="privacyLink">Privacy Policy</a>
   </nav>
   <main class="container">
+    <!-- Terms & Conditions Section -->
     <section class="terms">
       <h2>Terms &amp; Conditions</h2>
       <p>Welcome to Kiki AI - Python and AI Teaching. By accessing and using our website, you agree to comply with and be bound by the following Terms &amp; Conditions. Please review them carefully.</p>
@@ -183,9 +258,82 @@
         <a class="email-button" href="mailto:buildskiki@gmail.com?subject=In-Depth%20Python/AI%20Lessons" target="_blank">Email for More In-Depth Lessons</a>
       </div>
     </section>
+    
+    <!-- Python Tutorial Card -->
+    <section class="card">
+      <h2>Full Python Tutorial</h2>
+      <button id="toggleTutorial">Show Tutorial</button>
+      <div class="content" id="tutorialContent">
+        <h3>Introduction to Python</h3>
+        <p>Python is a high-level, interpreted programming language known for its simplicity and readability. In this tutorial, we cover the basics of Python programming.</p>
+        <h4>Example: Hello World</h4>
+        <pre><code>print("Hello, World!")</code></pre>
+        <h4>Variables and Data Types</h4>
+        <p>Python supports various data types including integers, floats, strings, and booleans. For example:</p>
+        <pre><code>age = 30
+name = "Alice"
+is_student = True</code></pre>
+        <h4>Control Structures</h4>
+        <p>Learn about loops and conditionals:</p>
+        <pre><code>for i in range(5):
+    print("Iteration", i)
+    
+if age > 18:
+    print("Adult")
+else:
+    print("Minor")</code></pre>
+        <p>... and much more in this comprehensive tutorial.</p>
+      </div>
+    </section>
   </main>
   <footer>
     <p>&copy; 2025 Kiki AI - Python and AI Teaching. All rights reserved.</p>
   </footer>
+  
+  <!-- Modal for Privacy Policy -->
+  <div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="modalClose">&times;</span>
+      <h2>Privacy Policy - Terms &amp; Conditions</h2>
+      <p>This Privacy Policy and Terms &amp; Conditions document explains how we collect, use, and protect your information when you access and use our website.</p>
+      <p><strong>1. Data Collection:</strong> We may collect non-personal data such as your IP address, browser type, and access times. Any personal information you provide is collected only with your consent.</p>
+      <p><strong>2. Use of Information:</strong> We use your information to improve our services, tailor content to your interests, and communicate important updates. We do not share your personal data with third parties without your explicit consent.</p>
+      <p><strong>3. Security:</strong> We implement industry-standard security measures to protect your information. However, no system is completely secure, and we cannot guarantee the absolute protection of your data.</p>
+      <p><strong>4. Your Rights:</strong> You have the right to access, correct, or delete your personal data at any time. Contact us at <a href="mailto:buildskiki@gmail.com">buildskiki@gmail.com</a> for inquiries regarding your data.</p>
+      <p><strong>5. Changes to This Policy:</strong> We may update this Privacy Policy from time to time. We encourage you to review this document periodically for any changes.</p>
+      <p>By using this website, you agree to the terms of this Privacy Policy and our Terms &amp; Conditions. If you do not agree, please refrain from using our site.</p>
+    </div>
+  </div>
+  
+  <script>
+    // Toggle Python Tutorial Card
+    document.getElementById('toggleTutorial').addEventListener('click', function() {
+      var content = document.getElementById('tutorialContent');
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        this.textContent = "Hide Tutorial";
+      } else {
+        content.style.display = "none";
+        this.textContent = "Show Tutorial";
+      }
+    });
+
+    // Modal functionality for Privacy Policy
+    var modal = document.getElementById("privacyModal");
+    var privacyLink = document.getElementById("privacyLink");
+    var closeModal = document.getElementById("modalClose");
+
+    privacyLink.onclick = function() {
+      modal.style.display = "block";
+    }
+    closeModal.onclick = function() {
+      modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
